@@ -9,20 +9,17 @@ const Api = {
             console.log(error)
         }
     },
-    getIpLocal: async () =>{
+    getTimeZone: async () =>{
         try {
-            const baseURL = `https://api.ipbase.com/v2/info?ip=1.1.1.1&apikey=ZSkyynrX1S8FtMeRFNDxf00xzeA6HnV409gSa8Jl`
-            const response = await axios.get(`${baseURL}`)
+            const response = await axios.get(`http://worldtimeapi.org/api/ip`)
             return response.data
         } catch (error) {
             console.log(error)
         }
-       
     },
-    getWorldTime: async () =>{
+    getLocation: async () =>{
         try {
-            const baseURL = "http://worldtimeapi.org/api/ip"
-            const response = await axios.get(`${baseURL}`)
+            const response = await axios.get(`https://api.ipgeolocation.io/ipgeo?apiKey=6d5a485a9e304f03a9a6c32c172e5d72`)
             return response.data
         } catch (error) {
             console.log(error)

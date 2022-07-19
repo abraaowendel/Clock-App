@@ -1,6 +1,6 @@
 import * as C from "./style"
 
-const DetailsItem = (props) =>{
+const InfoDetails = (props) =>{
     return(
         <C.Details>
             <C.DetailsTitle>{props.title}</C.DetailsTitle>
@@ -8,4 +8,4 @@ const DetailsItem = (props) =>{
         </C.Details>
     )
 }
-export default DetailsItem;
+export default InfoDetails;

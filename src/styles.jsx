@@ -8,13 +8,14 @@ export const Container = styled.div `
 `
 
 export const Home = styled.div`
-    padding: 60px 120px;
+    padding: 40px 120px;
     display: flex;
     flex-direction: column;
     align-items: center;    
     min-height: 100vh;
     width: 100vw;
-    background-image: url(${BackgroundMorning}) ;
+    background-image: ${props => props.bg < 18? `url(${BackgroundMorning})`:`url(${BackgroundNight})`} ;
+    background-repeat: no-repeat;
     ::before{
         content: "";
         position: absolute;
@@ -27,9 +28,50 @@ export const Home = styled.div`
     }
     @media screen and (max-width: 992px){
         padding: 30px 60px;
+        background-size: cover;
+        background-position: center;
     }
     @media screen and (max-width: 600px){
         padding: 13px 26px;
     }
 `;
 
+export const Toggle = styled.button`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 50px;
+  right: 100px;
+  border-radius: 30px;
+  border: 0;
+  min-width: 150px;
+  padding: 12px 20px;
+  transition: .4s all ease-in-out;
+  z-index: 2;
+  cursor: pointer;
+  &:hover{
+    opacity: .6;
+  }
+  @media screen and (max-width: 600px) {
+    padding: 10px 20px;
+    min-width: 1px;
+  }
+`
+export const ToggleTitle = styled.p`
+  position: relative;
+  font-size: 1.2em;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: #9b9696;
+  margin-right: 10px;
+
+  @media screen and (max-width: 600px) {
+    font-size: 1em;
+  }
+`
+export const IconUpOrDown = styled.img`
+  @media screen and (max-width: 600px) {
+    height: 30px;
+  }
+`

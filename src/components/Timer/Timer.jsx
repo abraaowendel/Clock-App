@@ -1,24 +1,23 @@
+import { FormatHours } from "../../helpers/FormatHours";
+import { FormartPeriod } from "../../helpers/FormatPeriod";
 import * as C from "./style"
-import Dia from "../../assets/svgs/icon-sun.svg"
 
-export const Timer = () =>{
+const Timer = (props) =>{
+    const util = FormartPeriod(props.data.h)
     return(
         <C.Container>
             <C.Greeting>
-                <C.Icon src={Dia}/>
-                <h5>BOM DIA, ATUALMENTE ESTÁ</h5>
+                <C.Icon src={util.icon}/>
+                <C.GreetingTitle>{util.salutation}</C.GreetingTitle>
             </C.Greeting>
             <C.Hours>
-                <C.CurrentTime>10:45</C.CurrentTime>
-                <C.Period>AM</C.Period>
+                <C.CurrentTime>{props.data.fullHour}</C.CurrentTime>
+                <C.Period>{util.period}</C.Period>
             </C.Hours>
             <C.Locale>
-                <C.Region>SUL</C.Region>
-                <C.Toggle>
-                    <C.ToggleTitle>MAIS</C.ToggleTitle>
-                    <C.IconUpOrDown src={{}}/>
-                </C.Toggle>
+                <C.Region>{props.info.country_code2}</C.Region>
             </C.Locale>
         </C.Container>
     )
 }
+export default Timer; 
